@@ -111,6 +111,15 @@ class BinarySearchTreeNode:
 
         return sum
 
+    def reverse(self):
+        if self is None:
+            return
+        self.left, self.right = self.right, self.left
+        if self.left:
+            self.left.reverse()
+        if self.right:
+            self.right.reverse()
+
 
 def build_tree(elements):
     root = BinarySearchTreeNode(elements[0])

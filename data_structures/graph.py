@@ -50,3 +50,23 @@ class Graph:
                     shortest_path = sp
 
         return shortest_path
+
+    def dfs(self, visited, start):
+        if start not in visited:
+            print(start)
+            visited.add(start)
+
+        for node in self.graph_dict[start]:
+            if node not in visited:
+                self.dfs(visited, node)
+
+    def bfs(self, visited, start):
+        q = [start]
+        while len(q) > 0:
+            start = q.pop(0)
+            if start not in visited:
+                print(start)
+                visited.add(start)
+                for node in self.graph_dict[start]:
+                    if node not in visited:
+                        q.append(node)

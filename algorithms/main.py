@@ -1,3 +1,5 @@
+import operator
+
 from binary_search import binary_search, binary_search_recursive
 from sorts.bubble_sort import bubble_sort
 from sorts.quick_sort import quick_sort
@@ -29,5 +31,19 @@ if __name__ == '__main__':
     elements = [3, 6, 1, 9, 34, 13]
     selection_sort(elements)
     print(elements)
+
+    d = { 'Moscow': 1000000,
+          'Saint-Petersburg': 500000,
+          'Orsk': 22000,
+          'Magnitogorsk': 60000,
+          'Murom': 5000,
+          'Ekaterinburg': 100000}
+
+    print(d)
+
+    sorted_tuples = sorted(d.items(), key=operator.itemgetter(1), reverse=True)
+    sorted_dict = {k: v for k, v in sorted_tuples}
+    print(sorted_dict)
+
 
 

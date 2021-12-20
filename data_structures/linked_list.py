@@ -20,7 +20,7 @@ class LinkedList:
         itr = self.head
         llstr = ''
 
-        while itr:
+        while itr and itr.data is not None:
             llstr += str(itr.data) + "-->"
             itr = itr.next
 
@@ -102,3 +102,19 @@ class LinkedList:
                 self.remove_at(count)
             itr = itr.next
             count += 1
+
+    def reverse(self):
+        if self.head is None:
+            return
+
+        prev = Node()
+        current = self.head
+
+        while current:
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+
+        self.head = prev
+
